@@ -1,5 +1,7 @@
 module Html.Internal where
 
+import Numeric.Natural
+
 -- Types
 
 newtype Html = Html String
@@ -49,7 +51,7 @@ getStructStr :: Structure -> String
 getStructStr (Structure s) = s
 
 el :: String -> String -> String
-el tag content = "<" <> tag <> ">" <> escape content <> "</" <> tag <> ">"
+el tag content = "<" <> tag <> ">" <> content <> "</" <> tag <> ">"
 
 escape :: String -> String
 escape =
