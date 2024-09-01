@@ -5,16 +5,7 @@ main :: IO ()
 main = putStrLn $ render myhtml
 
 myhtml :: Html
-myhtml =
-  html_
-    "basic haskell"
-    $ append_
-      (h1_ "Creative Heading")
-    $ append_
-      (p_ "para #1")
-    $ append_
-      (code_ "(defn hello! [& args] (apply println \"Hello\" args))")
-      (p_ "bye")
+myhtml = html_ "basic haskell" (h1_ "My Header" <> p_ "New Para" <> p_ "okay")
 
 example1 :: Document
 example1 =

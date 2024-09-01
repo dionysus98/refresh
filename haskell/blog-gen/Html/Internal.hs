@@ -1,5 +1,6 @@
 module Html.Internal where
 
+import Data.IntMap qualified as S
 import Numeric.Natural
 
 -- Types
@@ -37,9 +38,6 @@ ol_ = Structure . el "ol" . concatMap (el "li" . getStructStr)
 code_ :: String -> Structure
 code_ = Structure . el "pre" . escape
 
-append_ :: Structure -> Structure -> Structure
-append_ (Structure a) (Structure b) = Structure (a <> b)
-
 -- render
 
 render :: Html -> String
@@ -64,3 +62,6 @@ escape =
           '\'' -> "&#39;"
           _ -> [c]
    in concatMap escapeChar
+
+instance Semigroup Structure where
+  Structure s1 <> Structure s2 = Structure (s1 <> s2)
