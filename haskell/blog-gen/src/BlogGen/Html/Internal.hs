@@ -1,6 +1,5 @@
-module Html.Internal where
+module BlogGen.Html.Internal where
 
-import Data.IntMap qualified as S
 import Numeric.Natural
 
 -- Types
@@ -23,8 +22,8 @@ html_ title (Structure content) =
 p_ :: String -> Structure
 p_ = Structure . el "p" . escape
 
-h1_ :: String -> Structure
-h1_ = Structure . el "h1" . escape
+h_ :: Natural -> String -> Structure
+h_ lvl = Structure . el ("h" <> show lvl) . escape
 
 li_ :: Structure -> Structure
 li_ (Structure s) = Structure $ el "li" s
@@ -65,3 +64,6 @@ escape =
 
 instance Semigroup Structure where
   Structure s1 <> Structure s2 = Structure (s1 <> s2)
+
+instance Monoid Structure where
+  mempty = Structure ""

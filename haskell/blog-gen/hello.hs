@@ -5,7 +5,7 @@ main :: IO ()
 main = putStrLn $ render myhtml
 
 myhtml :: Html
-myhtml = html_ "basic haskell" (h1_ "My Header" <> p_ "New Para" <> p_ "okay")
+myhtml = html_ "basic haskell" (h_ 1 "My Header" <> p_ "New Para" <> p_ "okay")
 
 example1 :: Document
 example1 =

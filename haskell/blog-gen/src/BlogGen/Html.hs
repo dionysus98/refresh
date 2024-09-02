@@ -1,10 +1,10 @@
-module Html
+module BlogGen.Html
   ( Html,
     Title,
     Structure,
     html_,
     p_,
-    h1_,
+    h_,
     render,
     ul_,
     ol_,
@@ -12,4 +12,4 @@ module Html
   )
 where
 
-import Html.Internal
+import BlogGen.Html.Internal
